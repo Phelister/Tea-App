@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Tea</string>
+    <string name="greetings">Hi Good Morning!</string>
+    <string name="welcome">Karibu Sana!</string>
+</resources>

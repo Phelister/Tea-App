@@ -1,8 +1,11 @@
 package com.example.tea
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -20,11 +23,13 @@ class MainActivity : AppCompatActivity() {
     val input=findViewById<EditText>(R.id.personaName)
     val submit = findViewById<Button>(R.id.button)
     val welcome = findViewById<TextView>(R.id.welcome)
+    val next = findViewById<Button>(R.id.next)
 
     // onclick listener of the button
     submit.setOnClickListener{
         val enteredName=input.text.toString()
         if(enteredName.isEmpty()){
+            next.visibility=INVISIBLE
             welcome.text = ""
             Toast.makeText(applicationContext,"Please enter your name",Toast.LENGTH_SHORT).show()
         }
@@ -33,7 +38,17 @@ class MainActivity : AppCompatActivity() {
             welcome.text = message
             //input.setText("")
             input.text.clear()
+            next.visibility=VISIBLE
         }
     }
+
+    next.setOnClickListener{
+        //task in android
+        val intent= Intent(this,SecondActivity::class.java)
+        startActivity(intent)
+
+    }
+
+
     }
 }

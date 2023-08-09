@@ -24,10 +24,10 @@ class MainActivity : AppCompatActivity() {
     val submit = findViewById<Button>(R.id.button)
     val welcome = findViewById<TextView>(R.id.welcome)
     val next = findViewById<Button>(R.id.next)
-
+    var enteredName=""
     // onclick listener of the button
     submit.setOnClickListener{
-        val enteredName=input.text.toString()
+        enteredName=input.text.toString()
         if(enteredName.isEmpty()){
             next.visibility=INVISIBLE
             welcome.text = ""
@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
     next.setOnClickListener{
         //task in android
         val intent= Intent(this,SecondActivity::class.java)
+        intent.putExtra("USER" ,enteredName)
         startActivity(intent)
 
     }

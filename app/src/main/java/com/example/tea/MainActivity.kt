@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.widget.Button
@@ -18,6 +19,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     //val used for read only variables
+    Log.i("create","created well: On Create")
+     var car=Car()
+    car.start()
+    var driver=Driver("Eric")
+    driver.showDetails()
+
+
+
 
     val greetings = findViewById<TextView>(R.id.textView)
     val input=findViewById<EditText>(R.id.personaName)
@@ -51,5 +60,37 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        Log.i("start","started well: On Start")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("resume","resumed well: On Resume")
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("pause","paused well: On Pause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("stop","stopped well: On Stop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("destroy","destroyed well: On Destroy")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i("restart","restarted well: On Restart")
     }
 }
